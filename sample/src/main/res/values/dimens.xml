@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="corner_radius">8dp</dimen>
+
+    <dimen name="appbar_height">128dp</dimen>
+    <dimen name="appbar_title">24sp</dimen>
+
+</resources>

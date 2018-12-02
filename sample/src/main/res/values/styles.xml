@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="App" />
+
+
+    <style name="App.Shadow" />
+
+    <style name="App.Shadow.Top">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">4dp</item>
+        <item name="android:layout_gravity">top</item>
+        <item name="android:background">@drawable/shadow_top</item>
+    </style>
+
+    <style name="App.Shadow.Bottom">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">4dp</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:background">@drawable/shadow_bottom</item>
+    </style>
+
+
+    <style name="App.Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/divider</item>
+    </style>
+
+</resources>
