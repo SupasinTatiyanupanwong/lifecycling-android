@@ -1,11 +1,11 @@
 /*
- * Copyright (C) 2016 Supasin Tatiyanupanwong
+ * Copyright 2016 Supasin Tatiyanupanwong
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -14,20 +14,23 @@
  * limitations under the License.
  */
 
-package me.tatiyanupanwong.supasin.android.lifecyclingx;
+package me.tatiyanupanwong.supasin.libraries.android.lifecyclingx;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
 import android.support.v7.app.AppCompatDialog;
 
-import me.tatiyanupanwong.supasin.android.lifecycling.Lifecycle;
-import me.tatiyanupanwong.supasin.android.lifecycling.LifecycleOwner;
-import me.tatiyanupanwong.supasin.android.lifecycling.LifecycleRegistry;
+import me.tatiyanupanwong.supasin.libraries.android.lifecycling.Lifecycle;
+import me.tatiyanupanwong.supasin.libraries.android.lifecycling.LifecycleOwner;
+import me.tatiyanupanwong.supasin.libraries.android.lifecycling.LifecycleRegistry;
 
-import static me.tatiyanupanwong.supasin.android.lifecycling.Lifecycle.Event.ON_CREATE;
-import static me.tatiyanupanwong.supasin.android.lifecycling.Lifecycle.Event.ON_START;
-import static me.tatiyanupanwong.supasin.android.lifecycling.Lifecycle.Event.ON_STOP;
+import static me.tatiyanupanwong.supasin.libraries.android.lifecycling.Lifecycle.Event.ON_CREATE;
+import static me.tatiyanupanwong.supasin.libraries.android.lifecycling.Lifecycle.Event.ON_DESTROY;
+import static me.tatiyanupanwong.supasin.libraries.android.lifecycling.Lifecycle.Event.ON_PAUSE;
+import static me.tatiyanupanwong.supasin.libraries.android.lifecycling.Lifecycle.Event.ON_RESUME;
+import static me.tatiyanupanwong.supasin.libraries.android.lifecycling.Lifecycle.Event.ON_START;
+import static me.tatiyanupanwong.supasin.libraries.android.lifecycling.Lifecycle.Event.ON_STOP;
 
 /**
  * {@link Lifecycle}-supported Dialog. The events will be dispatched as per callback.
@@ -73,6 +76,28 @@ public abstract class LifecycleDialog extends AppCompatDialog implements Lifecyc
     public void onStop() {
         mLifecycleRegistry.handleEvent(ON_STOP);
         super.onStop();
+    }
+
+
+    @CallSuper
+    @Override
+    public void show() {
+        super.show();
+        mLifecycleRegistry.handleEvent(ON_RESUME);
+    }
+
+    @CallSuper
+    @Override
+    public void hide() {
+        mLifecycleRegistry.handleEvent(ON_PAUSE);
+        super.hide();
+    }
+
+    @CallSuper
+    @Override
+    public void dismiss() {
+        mLifecycleRegistry.handleEvent(ON_DESTROY);
+        super.dismiss();
     }
 
 

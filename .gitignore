@@ -1,8 +1,20 @@
-*.iml
-.gradle
-local.properties
-.idea
+# Mac OS
 .DS_Store
-build
+
+# Android
+local.properties
 captures
-.externalNativeBuild
+
+# Gradle
+.gradle
+build
+
+# IntelliJ IDEA
+*.iml
+.idea/*
+
+# VS Code
+.classpath
+.project
+.settings
+.factorypath

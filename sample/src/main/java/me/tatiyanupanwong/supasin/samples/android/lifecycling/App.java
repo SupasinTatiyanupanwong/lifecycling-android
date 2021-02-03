@@ -1,11 +1,11 @@
 /*
- * Copyright (C) 2016 Supasin Tatiyanupanwong
+ * Copyright 2016 Supasin Tatiyanupanwong
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      http://www.apache.org/licenses/LICENSE-2.0
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,13 +18,13 @@ package me.tatiyanupanwong.supasin.samples.android.lifecycling;
 
 import android.util.Log;
 
-import me.tatiyanupanwong.supasin.android.lifecycling.LifecycleObserver;
-import me.tatiyanupanwong.supasin.android.lifecycling.LifecycleOwner;
-import me.tatiyanupanwong.supasin.android.lifecycling.Lifecycling;
-import me.tatiyanupanwong.supasin.android.lifecyclingx.LifecycleApplication;
+import me.tatiyanupanwong.supasin.libraries.android.lifecycling.LifecycleObserver;
+import me.tatiyanupanwong.supasin.libraries.android.lifecycling.LifecycleOwner;
+import me.tatiyanupanwong.supasin.libraries.android.lifecycling.Lifecycling;
+import me.tatiyanupanwong.supasin.libraries.android.lifecyclingx.LifecycleApplication;
 
 /**
- * A sample to demonstrate the usage and/or behaviour of Lifecycling and LifecyclingX library.
+ * A sample to demonstrate the usage and/or behaviour of Lifecycling and LifecyclingX libraries.
  *
  * @author Supasin Tatiyanupanwong (supast49@aware.postbox.in.th)
  */
@@ -35,18 +35,17 @@ public class App extends LifecycleApplication {
 
     @Override
     public void onCreate() {
-
-        Lifecycling.enableLogging(true);
+        Lifecycling.enableDebugLogging(true);
 
         getLifecycle().addObserver(ApplicationLifecycleObserver.INSTANCE);
 
         super.onCreate();
-
     }
 
     @Override
     public void onTerminate() {
         getLifecycle().removeObserver(ApplicationLifecycleObserver.INSTANCE);
+
         super.onTerminate();
     }
 
